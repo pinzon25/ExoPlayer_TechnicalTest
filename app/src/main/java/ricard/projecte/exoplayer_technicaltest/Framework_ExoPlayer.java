@@ -15,7 +15,8 @@ import java.io.File;
 public class Framework_ExoPlayer{
 
     public static MediaItem getMediaItem(){
-        MediaItem mi = MediaItem.fromUri(Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"));
+        MediaItem mi = MediaItem.fromUri(Uri.parse("http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"));
+
         return mi;
     }
 
