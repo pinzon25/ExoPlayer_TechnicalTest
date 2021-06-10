@@ -1,0 +1,26 @@
+# ExoPlayer_TechnicalTest
+
+To use the software the user must go to the main menu and select the ExoPlayer_TechnicalTest App.
+
+When the app is executed, the software will make a request to an URL automatically, the URL is the same given at the end of the statement of the PDF document of this test.
+
+Automatically we'll see how the video appears into the player.
+
+At the start of the player will appear a welcome message displayed by Toast and a message that tells us that the first frame of the video is shown. 
+The first frame Toast will be shown always at the start of the clip.
+
+To pause the clip only have to push into the pause button displayed at the center of the layout. 
+
+To Play or resume the clip have to push the play/pause button when the clip has been already paused.
+
+To restart the clip have to push into the restart button, displayed at the left side of the rewind button.
+
+To forward rewind only have to push the forward rewind button, displayed at the right side of the play/pause button.
+
+To rewind only have to push the rewind button, displayed at the left side of the play/pause button.
+
+At the bottom of the layout we'll see all the counters that show how many times we have pushed the play/pause button and the restart/repeat button, 
+in addition we'll see the time passed between the paused and resumed state of the player.
+
+When the clip finishes we'll see a end message shown by Toast telling us that the clip has finished.
+
