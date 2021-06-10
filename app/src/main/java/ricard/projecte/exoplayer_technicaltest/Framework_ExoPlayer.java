@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.FileDataSource;
 import com.google.android.exoplayer2.util.MimeTypes;
@@ -20,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Framework_ExoPlayer{
 
-    public static MediaItem getMediaItem(){
-        MediaItem mi = MediaItem.fromUri(Uri.parse("http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"));
+    public static MediaItem getMediaItem(String url){
+        MediaItem mi = MediaItem.fromUri(Uri.parse(url));
 
         return mi;
     }
@@ -42,12 +44,11 @@ public class Framework_ExoPlayer{
     }
 
     public static void getElapsedTime(Instant start, Instant end, TextView t){
-        long min = 0, sec=0, timelapsed = 0;
+        long timelapsed = 0;
         String time="";
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             Duration timeElapsed = Duration.between(start, end);
-            min = timeElapsed.toMinutes();
-            sec = timeElapsed.toNanos();
             timelapsed = timeElapsed.toMillis();
 
             time =  String.format("%02d min, %02d sec",
@@ -58,6 +59,12 @@ public class Framework_ExoPlayer{
 
             t.setText("");
             t.setText(time);
+        }
+    }
+
+    public static void showWelcome(SimpleExoPlayer player, Context context){
+        if(player.getCurrentPosition() == 0){
+            Toast.makeText(context, "Welcome to ExoPlayer.", Toast.LENGTH_SHORT).show();
         }
     }
 
