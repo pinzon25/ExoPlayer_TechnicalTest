@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity{
         player.addAnalyticsListener(new AnalyticsListener() {
             @Override
             public void onRenderedFirstFrame(EventTime eventTime, Object output, long renderTimeMs) {
+                if(player.getCurrentPosition() == 0) {
                     Toast.makeText(MainActivity.this, "Rendered the first frame.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
