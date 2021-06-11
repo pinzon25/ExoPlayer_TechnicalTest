@@ -22,27 +22,32 @@ import java.util.concurrent.TimeUnit;
 
 public class Framework_ExoPlayer{
 
+    //Returns a MediaItem created by String parameter with the URL.
     public static MediaItem getMediaItem(String url){
         MediaItem mi = MediaItem.fromUri(Uri.parse(url));
 
         return mi;
     }
 
+    //Recieve the amount of clicks made by pause button and show it in the TextView of PauseClicks.
     public static void countPause(TextView t, int count){
         t.setText("");
         t.setText(String.valueOf(count));
     }
 
+    //Recieve the amount of clicks made by play button show it in the TextView of PlayClicks.
     public static void countPlay(TextView t, int count){
         t.setText("");
         t.setText(String.valueOf(count));
     }
 
+    //Recieve the amount of clicks made by restart/repeat button show it in the TextView of RestartClicks.
     public static void countRepeat(TextView t, int count){
         t.setText("");
         t.setText(String.valueOf(count));
     }
 
+    //Recieve the start and end instants and the TextView where we'll see the time elapsed.
     public static void getElapsedTime(Instant start, Instant end, TextView t){
         long timelapsed = 0;
         String time="";
@@ -62,6 +67,7 @@ public class Framework_ExoPlayer{
         }
     }
 
+    //Show the welcome message at the first time of the application when the trackball position is at the start of the clip.
     public static void showWelcome(SimpleExoPlayer player, Context context){
         if(player.getCurrentPosition() == 0){
             Toast.makeText(context, "Welcome to ExoPlayer.", Toast.LENGTH_SHORT).show();
