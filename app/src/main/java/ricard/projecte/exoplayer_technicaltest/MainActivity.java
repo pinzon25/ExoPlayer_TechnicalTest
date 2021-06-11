@@ -34,6 +34,7 @@ import java.util.SimpleTimeZone;
 import static com.google.android.exoplayer2.Player.*;
 
 public class MainActivity extends AppCompatActivity{
+
     SimpleExoPlayer player;
     PlayerView playview;
     MediaItem mi,fakeUrl;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
         player = new SimpleExoPlayer.Builder(this).build();
         playview.setPlayer(player);
         mi = Framework_ExoPlayer.getMediaItem("http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8");
-        fakeUrl = Framework_ExoPlayer.getMediaItem("https://www.youtube.com/watch?v=8MLa-Lh8lkU&t=517s");
+        //fakeUrl = Framework_ExoPlayer.getMediaItem("https://www.youtube.com/watch?v=8MLa-Lh8lkU&t=517s"); Fake http request.
 
         player.addAnalyticsListener(new AnalyticsListener() {
             @Override
@@ -81,13 +82,10 @@ public class MainActivity extends AppCompatActivity{
         });
 
         player.addMediaItem(mi);
-        //player.addMediaItem(fakeUrl);
+        //player.addMediaItem(fakeUrl); //MediaItem with fake http.
         player.prepare();
         Framework_ExoPlayer.showWelcome(player, MainActivity.this);
         player.setPlayWhenReady(true);
-
-
-
 
 
         btPausa.setOnClickListener(new View.OnClickListener() {
@@ -127,15 +125,5 @@ public class MainActivity extends AppCompatActivity{
                 Framework_ExoPlayer.countRepeat(clickRestart,contRepeat);
             }
         });
-
-
-
     }
-
-
-    /*
-    @Override
-    public void onClick(View v) {
-
-    }*/
 }
